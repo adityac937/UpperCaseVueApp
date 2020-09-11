@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UpperCase Vue App</title>
+    <style>
+      #app {
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="inputText" placeholder="Enter Input" />
+      <button @click="converter">Convert</button><br />
+      {{message}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script>
+      let app = new Vue({
+        el: "#app",
+        data: {
+          message: "Clicking Button will transform text to uppercase",
+          inputText: null,
+        },
+        methods: {
+          converter() {
+            this.message = this.inputText.toUpperCase();
+            this.inputText = null;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
